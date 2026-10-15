@@ -39,7 +39,12 @@ export default function Contact() {
 
   const tiles = [
     { label: 'Location', value: profile.location },
-    profile.phone && { label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
+    profile.phone && {
+      label: 'Phone / WhatsApp',
+      value: profile.phone,
+      href: `tel:${profile.phone.replace(/\s/g, '')}`,
+      extra: profile.whatsapp && { label: 'Chat on WhatsApp ↗', href: profile.whatsapp },
+    },
     { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
     { label: 'Status', value: 'Open to new opportunities' },
   ].filter(Boolean)
@@ -95,7 +100,12 @@ export default function Contact() {
           {tiles.map((t, i) => (
             <div key={t.label} className="tile reveal" style={{ '--d': `${i * 0.08}s` }}>
               <span>{t.label}</span>
-              {t.href ? <a href={t.href}>{t.value}</a> : <strong>{t.value}</strong>}
+              <div className="tile__links">
+                {t.href ? <a href={t.href}>{t.value}</a> : <strong>{t.value}</strong>}
+                {t.extra && (
+                  <a href={t.extra.href} target="_blank" rel="noreferrer" className="tile__wa">{t.extra.label}</a>
+                )}
+              </div>
             </div>
           ))}
         </div>

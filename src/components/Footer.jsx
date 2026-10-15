@@ -1,4 +1,5 @@
 import { profile } from '../data/profile'
+import { icons } from './SocialIcons'
 
 const nav = [
   ['Home', '#top'],
@@ -11,10 +12,12 @@ const nav = [
 
 export default function Footer() {
   const social = [
-    profile.socials.linkedin && ['LinkedIn', profile.socials.linkedin],
-    profile.socials.github && ['GitHub', profile.socials.github],
-    ['Email', `mailto:${profile.email}`],
-    profile.phone && ['Call', `tel:${profile.phone.replace(/\s/g, '')}`],
+    profile.socials.linkedin && ['LinkedIn', profile.socials.linkedin, 'linkedin'],
+    profile.socials.instagram && ['Instagram', profile.socials.instagram, 'instagram'],
+    profile.socials.github && ['GitHub', profile.socials.github, 'github'],
+    profile.whatsapp && ['WhatsApp', profile.whatsapp, 'whatsapp'],
+    ['Email', `mailto:${profile.email}`, 'email'],
+    profile.phone && ['Call', `tel:${profile.phone.replace(/\s/g, '')}`, 'phone'],
   ].filter(Boolean)
 
   return (
@@ -36,9 +39,21 @@ export default function Footer() {
             </div>
             <div>
               <span className="footer__label">Social</span>
-              {social.map(([l, h]) => (
-                <a key={l} href={h} target={h.startsWith('http') ? '_blank' : undefined} rel="noreferrer">{l} ↗</a>
-              ))}
+              <div className="footer__socials">
+                {social.map(([l, h, icon]) => (
+                  <a
+                    key={l}
+                    href={h}
+                    className={`footer__social footer__social--${icon}`}
+                    target={h.startsWith('http') ? '_blank' : undefined}
+                    rel="noreferrer"
+                    aria-label={l}
+                    title={l}
+                  >
+                    <span className="footer__icon">{icons[icon]}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

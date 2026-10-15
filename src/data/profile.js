@@ -10,10 +10,13 @@ export const profile = {
   // Contact form delivery (FormSubmit). After activating, you can swap the email for the random alias FormSubmit gives you.
   formEndpoint: 'https://formsubmit.co/ajax/suthandeveloper96@gmail.com',
   phone: '+91 8825981768',
+  // WhatsApp chat link (country code + number, no '+' or spaces) with a pre-filled greeting
+  whatsapp: `https://wa.me/918825981768?text=${encodeURIComponent("Hi Suthan, I saw your portfolio and I'd like to connect.")}`,
   resumeUrl: '', // e.g. '/resume.pdf' (place the file in /public)
   socials: {
     github: '', // e.g. 'https://github.com/your-username'
     linkedin: 'https://www.linkedin.com/in/suthan-m-p-760169271',
+    instagram: 'https://www.instagram.com/suthan___mp/',
   },
   about: [
     'I am a Full Stack Developer with 3+ years of experience building web applications end to end. I started out focused on the frontend, spending over two years creating responsive, component-driven React applications with Redux, Tailwind CSS, and Material UI.',
