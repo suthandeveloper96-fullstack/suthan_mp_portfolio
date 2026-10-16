@@ -12,8 +12,15 @@ export default function Hero() {
 
       <img className="hero__photo" src={photo} alt={profile.name} />
 
+      {/* Mobile-only round avatar with animated ring */}
+      <div className="hero__avatar" aria-hidden="true">
+        <span className="hero__avatar-orbit"><i /></span>
+        <img src={photo} alt="" className="hero__avatar-img" />
+        <span className="hero__avatar-badge"><b />Open to work</span>
+      </div>
+
       <p className="hero__intro load" style={{ '--d': '0.5s' }}>
-        I build scalable web applications — from React interfaces to Node.js microservices on AWS.
+        Engineering high-performance web solutions — intuitive React interfaces backed by scalable Node.js microservices on AWS.
       </p>
 
       <div className="hero__namewrap">
